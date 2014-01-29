@@ -1,5 +1,10 @@
 /*
  * Programming Challenge 2
+ * A program to divide two integers, count coins, and calculate distance.
+ *
+ *Chee Yee Xiong
+ *Date created: 08-29-14
+ *Date modified: 08-29-14
  */
 #include <cassert>
 #include <cmath>
