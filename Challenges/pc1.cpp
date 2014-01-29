@@ -1,5 +1,11 @@
 /*
  * Programming Challenge 1
+ * An introduction program that ask the user if they have had C++ programming.
+ *
+ *Chee Yee Xiong
+ *Date created: 08-27-14
+ *Date modified: 08-29-14
+ *
  */
 #include <cassert>
 #include <iostream>
@@ -15,18 +21,27 @@ void unittest (string s, char c);
 
 int main (int argc, char* argv[])
 {
-    //declare string variable named userName.
-    //a welcome message and ask for user name.
-    //store user input in the variable userName.
+    // 1 declare a string variable named userName
     string userName;
-    cout << "Welcome! What is your name?: ";
-    getline(cin,userName);
     
-    char programmedBefore = 'z';
+    // 2 declare a char variable named programmedBefore
+	//   and initialize programmedBefore to the value 'z'
+	char programmedBefore = 'z';
+	
+	// 3 display a welcome message to standard output
+	// 4 prompt the user for a name
+    cout << "Welcome! What is your name?: ";
+    
+    // 5 read in the name from standard input and store
+	//   in the variable userName
+    getline(cin,userName);
+
     string userAnswer;
-    //a while loop to ask the user again to enter a correct response to the question.
+    //a while loop to ask the user to enter a correct response to the question.
     while (programmedBefore == 'z')
     {
+        // 6 ask the user the yes/no question "Have you programmed 
+	    //   in C++ before?"
         cout << "Have you programmed in C++ before? (Y/N): ";
         getline(cin, userAnswer);
         
@@ -35,6 +50,7 @@ int main (int argc, char* argv[])
             userAnswer[i] = toupper(userAnswer[i]);
             
          //if statement to check for correct input from the user.
+         //store the correct input in the variable programmedBefore
          if(userAnswer == "YES" || userAnswer =="Y" || userAnswer == "NO" || userAnswer == "N")
         {
             if(userAnswer == "YES" || userAnswer =="Y")
@@ -75,13 +91,13 @@ string greet (string name)
  */
 string checkExperience (char hasExperience)
 {
-	string message1 = "Welcome back";
-	string message2 = "Get ready to have some fun";
+	string welcomeBackMessage = "Welcome back";
+	string getReadyMessage = "Get ready to have some fun";
 	
 	if (hasExperience == 'Y')
-	    return message1;
+	    return welcomeBackMessage;
 	else
-	    return message2;
+	    return getReadyMessage;
 }
 
 /*
