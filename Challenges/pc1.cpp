@@ -30,7 +30,7 @@ int main (int argc, char* argv[])
         cout << "Have you programmed in C++ before? (Y/N): ";
         getline(cin, userAnswer);
         
-        // change userAnswer to uppercase letters using for loop.
+        //change userAnswer to uppercase letters with a for loop.
         for (int i = 0; i < userAnswer.size(); i++)
             userAnswer[i] = toupper(userAnswer[i]);
             
@@ -42,6 +42,7 @@ int main (int argc, char* argv[])
             else
                 programmedBefore = 'N';
             
+            //run the unittest function.
             unittest(userName, programmedBefore);
         }
         else
