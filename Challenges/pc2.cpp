@@ -55,13 +55,13 @@ bool isFactor (int numerator, int denominator)
  */
 void makeChange (int initialValue, int& quarters, int& dimes, int& nickels, int& pennies)
 {
-        quarters = initialValue / 25;
-        initialValue = initialValue - (25 * quarters);
-        dimes = initialValue / 10;
-        initialValue = initialValue - (10 * dimes);
-        nickels = initialValue / 5;
-        initialValue = initialValue - (5 * nickels);
-        pennies = initialValue;
+    quarters = initialValue / 25;
+    initialValue = initialValue - (25 * quarters);
+    dimes = initialValue / 10;
+    initialValue = initialValue - (10 * dimes);
+    nickels = initialValue / 5;
+    initialValue = initialValue - (5 * nickels);
+    pennies = initialValue;
 }
 
 /*
