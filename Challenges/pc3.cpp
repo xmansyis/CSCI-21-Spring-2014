@@ -171,7 +171,7 @@ string toUpper (string input)
  */
 char getCharacter (string input, int charIndex)
 {
-	for(int i=0; i< input.size(); i++)
+    for(int i=0; i< input.size(); i++)
         if(i == charIndex)
             return input[i];
 }
