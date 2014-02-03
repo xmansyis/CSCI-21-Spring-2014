@@ -97,7 +97,7 @@ int rockScissorPaper (char playerOne, char playerTwo)
 {
     if(toupper(playerOne) == toupper(playerTwo))
         return 3;   
-	switch (toupper(playerOne))
+    switch (toupper(playerOne))
 	{
         case 'R':
             if(toupper(playerTwo) == 'S')
