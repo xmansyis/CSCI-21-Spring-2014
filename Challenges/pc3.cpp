@@ -110,7 +110,7 @@ int rockScissorPaper (char playerOne, char playerTwo)
 	                return 1;
             else
 	                return 2;
-            break;
+        break;
             case 'P':
                 if(toupper(playerTwo)=='R')
                     return 1;
@@ -157,7 +157,7 @@ string toUpper (string input)
     for(int i = 0; i < input.size(); i++)
         input[i]= toupper(input[i]);
 	    
-	return input;
+    return input;
 }
 
 /*
