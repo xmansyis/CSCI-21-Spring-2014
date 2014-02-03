@@ -50,32 +50,33 @@ int main (int argc, char* argv[])
  */
 string goldilocks (string item, int number)
 {
-        if (number == 1)
-        {
-            if(item == "porridge")
-                return "This " + item + " is too hot";
-            if(item == "chair")
-                return "This "+ item + " is too big";
-            if(item == "bed")
-                return "This "+ item + " is too hard";
-        }
-        if (number == 2)
-        {   
-            if(item == "porridge")
-                return "This " + item + " is too cold";
-            if(item == "chair")
-                return "This "+ item + " is too big";
-            if(item == "bed")
-                return "This "+ item + " is too soft";
-        }   
-        if (number == 3)
-        {   if(item == "porridge")
-                return "This " + item + " is just right";
-            if(item == "chair")
-                return "This "+ item + " is just right";
-            if(item == "bed")
-                return "This "+ item + " is just right";
-        }
+    if (number == 1)
+    {
+        if(item == "porridge")
+            return "This " + item + " is too hot";
+        if(item == "chair")
+            return "This "+ item + " is too big";
+        if(item == "bed")
+            return "This "+ item + " is too hard";
+    }
+    if (number == 2)
+    {   
+        if(item == "porridge")
+            return "This " + item + " is too cold";
+        if(item == "chair")
+            return "This "+ item + " is too big";
+        if(item == "bed")
+            return "This "+ item + " is too soft";
+    }   
+    if (number == 3)
+    {   
+        if(item == "porridge")
+            return "This " + item + " is just right";
+        if(item == "chair")
+            return "This "+ item + " is just right";
+        if(item == "bed")
+            return "This "+ item + " is just right";
+    }
 }
 
 /*
@@ -98,26 +99,26 @@ int rockScissorPaper (char playerOne, char playerTwo)
         return 3;   
 	switch (toupper(playerOne))
 	{
-	   case 'R':
-	            if(toupper(playerTwo) == 'S')
-	                return 1;
-	           else
-	                return 2;
-	    break;
+        case 'R':
+            if(toupper(playerTwo) == 'S')
+                return 1;
+            else
+                return 2;
+        break;
 	    case 'S':
-	            if(toupper(playerTwo == 'P'))
+            if(toupper(playerTwo == 'P'))
 	                return 1;
-	            else
+            else
 	                return 2;
-	    break;
-	    case 'P':
-	            if(toupper(playerTwo)=='R')
-	                return 1;
-	            else
-	                return 2;
-	    break;
-	    default:
-	    break;
+            break;
+            case 'P':
+                if(toupper(playerTwo)=='R')
+                    return 1;
+                else
+                    return 2;
+        break;
+        default:
+        break;
 	}
 }
 
@@ -128,9 +129,9 @@ int rockScissorPaper (char playerOne, char playerTwo)
  */
 int asciiValue (char c)
 {
-	int asciiValue = c;
+    static_cast<int>(c);
 	
-    return asciiValue;
+    return c;
 }
 
 /*
@@ -141,10 +142,9 @@ int asciiValue (char c)
 string toLower (string input)
 {
     for(int i = 0; i < input.size(); i++)
-	    input[i]= tolower(input[i]);
+        input[i]= tolower(input[i]);
 	    
-	return input;
-	
+    return input;
 }
 
 /*
@@ -154,8 +154,8 @@ string toLower (string input)
  */
 string toUpper (string input)
 {
-	for(int i = 0; i < input.size(); i++)
-	    input[i]= toupper(input[i]);
+    for(int i = 0; i < input.size(); i++)
+        input[i]= toupper(input[i]);
 	    
 	return input;
 }
@@ -172,8 +172,8 @@ string toUpper (string input)
 char getCharacter (string input, int charIndex)
 {
 	for(int i=0; i< input.size(); i++)
-	    if(i == charIndex)
-	        return input[i];
+        if(i == charIndex)
+            return input[i];
 }
 
 /*
