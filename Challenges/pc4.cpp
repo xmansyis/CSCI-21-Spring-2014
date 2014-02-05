@@ -52,8 +52,8 @@ string makeString (string label, double value, char separator)
 {
     stringstream newString;
     newString << label <<" " << separator << " " << value;
-    
-	return newString.str();
+
+    return newString.str();
 }
 
 /*
@@ -68,7 +68,7 @@ char stringToChar (string value)
 {
     if(value.empty() || value.size() > 1 || !isalpha(value[0]))
         return '\0';
-    
+
     return value[0];
 }
 
