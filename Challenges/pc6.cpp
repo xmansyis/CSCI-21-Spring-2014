@@ -123,6 +123,7 @@ void swapValues (int values[], int index1, int index2)
     if(index1 < sizeof(values) || index2 < sizeof(values))
         swap(values[index1], values[index2]);
 }
+
 /*
  * Unit testing functions. Do not alter.
  */
