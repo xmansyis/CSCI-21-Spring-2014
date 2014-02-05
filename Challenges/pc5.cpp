@@ -13,7 +13,7 @@ void printMessage(string message);
 int getAnswer();
 int findLarger(int n1, int n2);
 int getStats(string s, int &alphaCount, int &digitCount);
-string buildMessage(string s, bool allCaps);
+string buildMessage(string s = "", bool allCaps = false);
 
 /* for unit testing -- do not alter */
 template <typename X, typename A>
@@ -103,12 +103,12 @@ int getStats(string s, int &alphaCount, int &digitCount)
     {
         if (isalpha(s[i]))
             alphaCount++;
+            
         if (isdigit(s[i]))
             digitCount++;
     }
   
     return s.size();
-    
 }
 
 /*
@@ -121,12 +121,13 @@ int getStats(string s, int &alphaCount, int &digitCount)
  * true, convert s to all uppercase letters before concatenating it with "Message: ". If s is empty string, 
  * return "Message: empty".
  */
-string buildMessage(string s="", bool allCaps = false)
+string buildMessage(string s, bool allCaps)
 {
     if(s.empty())
         return "Message: empty";
+        
     if(allCaps == true)
-        for(int i =0; i<s.size(); i++)
+        for(int i = 0; i < s.size(); i++)
             s[i] = toupper(s[i]);
             
     return ("Message: " + s);
