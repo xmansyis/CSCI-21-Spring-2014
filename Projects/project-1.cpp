@@ -6,7 +6,7 @@
  *
  * Chee Yee Xiong
  * Date created: 01-29-14
- * Date modified: 02-03-14
+ * Date modified: 02-05-14
  *
  * source: cplusplus.com
  */
@@ -53,6 +53,7 @@ void countCharacters (string theString, int& alpha, int& num)
     {
         if(isdigit(theString[i]))
             num++;
+            
         if(isalpha(theString[i]))
             alpha++;    
     }
@@ -61,10 +62,10 @@ void countCharacters (string theString, int& alpha, int& num)
 /*
 * This is the function upAndDown.  This function will find the first letter of a string and
 * change it to uppercase.  The second letter of the string will be lowercase.  The third character
-* will be uppercase again and so on, etc.
-* @param theString is a copy of a string that will be use modify it character to either uppercase or
+* will be uppercase again and so on, etc., and will return the new modify string.
+* @param theString is a copy of a string that will be use to modify its character to either uppercase or
 * lowercase letters.
-* @return a string which hold the new modified string.
+* @return a string which hold the new modify string.
 */
 string upAndDown (string theString)
 {
@@ -109,8 +110,8 @@ int countWords (string theString)
 
 /*
 * This is the function computeAverage.  This function will compute the average
-* number using some numbers in the array values and arraySize.
-* @param values is the array that will hold some values.
+* number using the numbers in the array values and return the average value.
+* @param values is the array parameter that holds the number values.
 * @param arraySize is an int that describe how many number are in the array values.
 * @return will return the average value.
 */
@@ -130,9 +131,9 @@ int computeAverage (int values [], int arraySize)
 
 /*
 * This is the function findMinValue.  This function will go through all the numbers
-* in an array and find the lowest number.
-* @param values is the array that will hold some values.
-* @param arraySize is an int that describe how many number are in the array values.
+* in the array and find the lowest number and return the lowest number.
+* @param values is the array parameter that will have all the number values.
+* @param arraySize is an int that describe how many number are in the array.
 * @return will return the lowest number found.
 */
 int findMinValue (int values [], int arraySize)
@@ -150,7 +151,7 @@ int findMinValue (int values [], int arraySize)
 /*
 * This is the function findMaxValue.  This function will go through all the numbers
 * in an array and find the largest number.
-* @param values is the array that will hold some values.
+* @param values is the array parameter that will have all the number values.
 * @param arraySize is an int that describe how many number are in the array values.
 * @return will return the largest number found.
 */
