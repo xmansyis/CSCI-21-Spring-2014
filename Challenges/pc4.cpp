@@ -54,8 +54,7 @@ string makeString (string label, double value, char separator)
     stringstream newString;
     newString << label <<" " << separator << " " << value;
     
-    string labelCharValue = newString.str();
-	return labelCharValue;
+	return newString.str();
 }
 
 /*
