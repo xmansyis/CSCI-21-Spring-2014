@@ -92,7 +92,7 @@ bool hasValue (int values[], int size, int value)
     for(int i = 0; i < size; i++)
         if((values[i]) == value)
             return value;
-    
+            
     return 0;
 }
 
@@ -122,7 +122,6 @@ void swapValues (int values[], int index1, int index2)
 {
     if(index1 < sizeof(values) || index2 < sizeof(values))
         swap(values[index1], values[index2]);
-    
 }
 /*
  * Unit testing functions. Do not alter.
