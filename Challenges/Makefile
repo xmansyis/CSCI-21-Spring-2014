@@ -4,7 +4,7 @@
 #
 # Programmer: Chee Yee Xiong
 #
-#Target for programming challenge 5
+#Target for programming challenge 6
 # Date completed: 2-5-2014
 pc6: pc6.cpp
 	g++ -o pc6 pc6.cpp
