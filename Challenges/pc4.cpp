@@ -36,7 +36,6 @@ int main (int argc, char* argv[])
 	return 0;
 }
 
-
 /*
  * Return a string comprised of a label, followed by a space, 
  * followed by a separator character, followed by a space, followed 
