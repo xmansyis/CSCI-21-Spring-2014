@@ -85,7 +85,7 @@ int stringToInt (string value)
 	// THIS FUNCTION PROVIDED AS AN EXAMPLE
 	int ivalue = 0;
 	stringstream converter(value);
-	converter.exceptions(ios_base::failbit);
+	converter.exceptions(ios_base::failbit | ios_base::badbit);
 
 	try
 	{
@@ -108,7 +108,7 @@ double stringToDouble (string value)
 {
     double newValue = 0.0;
 	stringstream converter(value);
-	converter.exceptions(ios_base::failbit);
+	converter.exceptions(ios_base::failbit | ios_base::badbit);
 
 	try
 	{
