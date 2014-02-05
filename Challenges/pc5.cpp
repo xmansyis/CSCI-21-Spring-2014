@@ -133,9 +133,6 @@ string buildMessage(string s, bool allCaps)
             
     return ("Message: " + s);
 }
-//   
-//}
-// CODE HERE -- FUNCTION DEFINITIONS
 
 /*
  * Unit testing functions. Do not alter.
