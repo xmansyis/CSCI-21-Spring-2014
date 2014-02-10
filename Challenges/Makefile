@@ -4,7 +4,16 @@
 #
 # Programmer: Chee Yee Xiong
 #
-#Target for programming challenge 6
+# Target for programming challenge 7
+# D completed: 2-6-2014
+
+FLAGS = -Wall -Wextra -Werror -pedantic
+#Target for programming challenge 7
+# Date completed: 2-10-2014
+pc7: pc7.cpp
+	g++ $(FLAGS) -o pc7 pc7.cpp
+
+# Target for programming challenge 6
 # Date completed: 2-5-2014
 pc6: pc6.cpp
 	g++ -o pc6 pc6.cpp
@@ -33,3 +42,6 @@ pc2: pc2.cpp
 # Date completed: 2-3-2014
 pc1: pc1.cpp
 	g++ -o pc1 pc1.cpp
+	
+test: test.cpp
+	g++ $(FLAGS) test.cpp -o test
