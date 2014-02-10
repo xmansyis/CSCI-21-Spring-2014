@@ -8,7 +8,7 @@
 # D completed: 2-6-2014
 
 FLAGS = -Wall -Wextra -Werror -pedantic
-#Target for programming challenge 7
+# Target for programming challenge 7
 # Date completed: 2-10-2014
 pc7: pc7.cpp
 	g++ $(FLAGS) -o pc7 pc7.cpp
