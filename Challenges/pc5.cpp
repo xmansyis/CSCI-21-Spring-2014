@@ -77,10 +77,7 @@ int getAnswer()
  */
 int findLarger(int n1, int n2)
 {
-    if (n1 == n2)
-        return n1;
-        
-    if (n1 > n2)
+    if (n1 >= n2)
         return n1;
     
     return n2;
