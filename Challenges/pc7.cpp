@@ -40,7 +40,7 @@ template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
 
-int main (int argc, char* argv[])
+int main (int, char**)
 {
 	unittest();
 
