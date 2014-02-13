@@ -65,7 +65,7 @@ template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
 
-int main (int argc, char* argv[])
+int main (int , char**)
 {
 	unittest();
 	
@@ -120,7 +120,8 @@ int sum (int values[], int size)
 
 void swapValues (int values[], int index1, int index2)
 {
-    if(index1 < sizeof(values) || index2 < sizeof(values))
+    int sizeOfArray = sizeof(values);
+    if(index1 < sizeOfArray || index2 < sizeOfArray)
         swap(values[index1], values[index2]);
 }
 
