@@ -3,11 +3,13 @@
 # CSCI 21, Spring 2014
 #
 # Programmer: Chee Yee Xiong
-#
-# Target for programming challenge 7
-# D completed: 2-6-2014
 
 FLAGS = -Wall -Wextra -Werror -pedantic
+
+# Target for programming challenge 8
+pc8: pc8.cpp
+	g++ -o pc8 pc8.cpp
+	
 # Target for programming challenge 7
 # Date completed: 2-10-2014
 pc7: pc7.cpp
