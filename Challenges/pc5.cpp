@@ -20,7 +20,7 @@ template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
 
-int main (int argc, char* argv[])
+int main (int, char**)
 {
 	unittest();
 	
@@ -97,7 +97,8 @@ int getStats(string s, int &alphaCount, int &digitCount)
     alphaCount = 0;
     digitCount = 0;
     
-    for(int i=0; i<s.size(); i++)
+    int sizeOfString = s.size();
+    for(int i=0; i < sizeOfString; i++)
     {
         if (isalpha(s[i]))
             alphaCount++;
@@ -123,9 +124,10 @@ string buildMessage(string s, bool allCaps)
 {
     if(s.empty())
         return "Message: empty";
-        
+    
+    int sizeOfString = s.size();    
     if(allCaps == true)
-        for(int i = 0; i < s.size(); i++)
+        for(int i = 0; i < sizeOfString; i++)
             s[i] = toupper(s[i]);
             
     return ("Message: " + s);
