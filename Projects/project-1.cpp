@@ -6,7 +6,7 @@
  *
  * Chee Yee Xiong
  * Date created: 01-29-14
- * Date modified: 02-05-14
+ * Date modified: 02-19-14
  *
  * source: cplusplus.com
  */
@@ -19,16 +19,16 @@ using namespace std;
 void countCharacters (string theString, int& alpha, int& num);
 string upAndDown (string theString);
 int countWords (string theString);
-int computeAverage (int values [], int arraySize);
-int findMinValue (int values [], int arraySize);
-int findMaxValue (int values [], int arraySize);
+int computeAverage (int values[], int arraySize);
+int findMinValue (int values[], int arraySize);
+int findMaxValue (int values[], int arraySize);
 
 /* for unit testing -- do not alter */
 template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
 
-int main (int argc, char* argv[])
+int main (int, char**)
 {
 	unittest();
 	
@@ -38,7 +38,7 @@ int main (int argc, char* argv[])
 /*
 * This is the function countCharacters.  This function count how many
 * integer and letter are in the parameter theString.
-* @param theString is a string input that will be use to look for integer or letter.
+* @param theString is a string input that will be use to look for integers or letters.
 * @param alpha is a reference parameter that will update the total alphabit counted.
 * @param num is a reference parameter that will update the total integer counted.
 */
@@ -46,10 +46,11 @@ void countCharacters (string theString, int& alpha, int& num)
 {
     num = 0;
     alpha = 0;
+    int sizeOfString = theString.size();
     
     //this loop search through theString for integers and alphabit letters
     //and store the total of each kind in num or alpha.
-    for (int i = 0; i < theString.size(); i++)
+    for (int i = 0; i < sizeOfString; i++)
     {
         if(isdigit(theString[i]))
             num++;
@@ -69,8 +70,10 @@ void countCharacters (string theString, int& alpha, int& num)
 */
 string upAndDown (string theString)
 {
+    int sizeOfString = theString.size();
+    
     //a loop to go through theString characters.
-    for(int i = 0; i < theString.size(); i++)
+    for(int i = 0; i < sizeOfString; i++)
     {
         //if it's not a space, then it's a character and modify the character.
         if(!isspace(theString[i]))
@@ -94,6 +97,7 @@ string upAndDown (string theString)
 int countWords (string theString)
 {
     int numberOfWords = 0;
+    int sizeOfString = theString.size();
     
     //if theString is not empty.
     if(!theString.empty())
@@ -101,7 +105,7 @@ int countWords (string theString)
         numberOfWords++;
         
         //check for spaces to determine additional words.
-        for(int i = 0; i <theString.size(); i++)
+        for(int i = 0; i <sizeOfString; i++)
             if(isspace(theString[i]))
                 numberOfWords++;
     }
@@ -115,7 +119,7 @@ int countWords (string theString)
 * @param arraySize is an int that describe how many number are in the array values.
 * @return will return the average value.
 */
-int computeAverage (int values [], int arraySize)
+int computeAverage (int values[], int arraySize)
 {
     int averageValue = 0;
     
@@ -136,7 +140,7 @@ int computeAverage (int values [], int arraySize)
 * @param arraySize is an int that describe how many number are in the array.
 * @return will return the lowest number found.
 */
-int findMinValue (int values [], int arraySize)
+int findMinValue (int values[], int arraySize)
 {
     int minimumValue = values[0];
     
@@ -155,7 +159,7 @@ int findMinValue (int values [], int arraySize)
 * @param arraySize is an int that describe how many number are in the array values.
 * @return will return the largest number found.
 */
-int findMaxValue (int values [], int arraySize)
+int findMaxValue (int values[], int arraySize)
 {
     int maxValue = values[0];
     
