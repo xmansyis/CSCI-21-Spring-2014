@@ -8,7 +8,6 @@
 #include <string>
 using namespace std;
 
-
 /*
  * Class Spaceship.
  * A class to model a simple spaceship for a science fiction
