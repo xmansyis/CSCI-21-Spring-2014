@@ -138,13 +138,13 @@ int Spaceship::getCrewCapacity() const
 
 string Spaceship::toString () const
 {
-    stringstream spaceSpecifications;
+    stringstream spaceshipSpecifications;
     float topSpeed = getTopSpeed();
 
-    spaceSpecifications << getName() << ", top speed: warp " << fixed << setprecision(2) << topSpeed
+    spaceshipSpecifications << getName() << ", top speed: warp " << fixed << setprecision(2) << topSpeed
                         << ", fuel source: " << getFuelSource() << ", crew capacity: " << getCrewCapacity();
     
-    return spaceSpecifications.str();
+    return spaceshipSpecifications.str();
 }
 
 /*
