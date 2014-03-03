@@ -13,7 +13,7 @@ class Prize
 {
 	public:
 	
-		Prize(string newName = "no name!", unsigned int newValue = 0);
+        Prize(string newName = "no name!", unsigned int newValue = 0);
 		/*
 		 * Constructor.
 		 * @param newName string containing a name for this Prize; default argument is "no name!";
@@ -28,12 +28,12 @@ class Prize
 		 * @return a string containing this Prize's name
 		 */
 
-		unsigned int getValue();
+        unsigned int getValue();
 		/*
 		 * Get this Prize's value
 		 * @return an unsigned int containing this Prize's value
 		 */
-		
+
 	private:
 	
 		string name;
@@ -48,21 +48,21 @@ class SecretDoor
 {
 	public:
 	
-	    SecretDoor(unsigned int newNumber = 1, Prize newPrize = Prize());
+        SecretDoor(unsigned int newNumber = 1, Prize newPrize = Prize());
 		/*
 		 * Constructor.
 		 * @param newNumber unsigned int containing a value for this SecretDoor's number; default argument is 1
 		 * @param newPrize Prize containing a Prize that is "hidden" behind this secret door; default argument 
 		 *        is Prize()
 		 */
-		
-		unsigned int getNumber();
+
+        unsigned int getNumber();
 		/*
 		 * Get this SecretDoor's number.
 		 * @return an unsigned int containing this SecretDoor's number
 		 */
 	    
-	    Prize getPrize();
+        Prize getPrize();
 		/*
 		 * Get this SecretDoor's Prize.
 		 * @return the Prize, by reference, "hidden behind" this SecretDoor
