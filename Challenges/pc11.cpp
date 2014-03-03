@@ -14,30 +14,30 @@ class Prize
     public:
 	
         Prize(string newName = "no name!", unsigned int newValue = 0);
-		/*
-		 * Constructor.
-		 * @param newName string containing a name for this Prize; default argument is "no name!";
-		 *        if newValue is > 100, converts name to all capital letters and concatenates a '!'
-		 *        at the end of name
-		 * @param newValue unsigned int containing a value for this Prize; default argument is 0
-		 */
+        /*
+        * Constructor.
+        * @param newName string containing a name for this Prize; default argument is "no name!";
+        *        if newValue is > 100, converts name to all capital letters and concatenates a '!'
+        *        at the end of name
+        * @param newValue unsigned int containing a value for this Prize; default argument is 0
+        */
 	    
         string getName();
-		/*
-		 * Get this Prize's name
-		 * @return a string containing this Prize's name
-		 */
+        /*
+        * Get this Prize's name
+        * @return a string containing this Prize's name
+        */
 
         unsigned int getValue();
-		/*
-		 * Get this Prize's value
-		 * @return an unsigned int containing this Prize's value
-		 */
+        /*
+        * Get this Prize's value
+        * @return an unsigned int containing this Prize's value
+         */
 
     private:
 	
-		string name;
-		unsigned int value;
+        string name;
+        unsigned int value;
 };
 
 /*
@@ -49,29 +49,29 @@ class SecretDoor
     public:
 	
         SecretDoor(unsigned int newNumber = 1, Prize newPrize = Prize());
-		/*
-		 * Constructor.
-		 * @param newNumber unsigned int containing a value for this SecretDoor's number; default argument is 1
-		 * @param newPrize Prize containing a Prize that is "hidden" behind this secret door; default argument 
-		 *        is Prize()
-		 */
+        /*
+        * Constructor.
+        * @param newNumber unsigned int containing a value for this SecretDoor's number; default argument is 1
+        * @param newPrize Prize containing a Prize that is "hidden" behind this secret door; default argument 
+        *        is Prize()
+        */
 
         unsigned int getNumber();
-		/*
-		 * Get this SecretDoor's number.
-		 * @return an unsigned int containing this SecretDoor's number
-		 */
+        /*
+        * Get this SecretDoor's number.
+        * @return an unsigned int containing this SecretDoor's number
+        */
 	    
         Prize getPrize();
-		/*
-		 * Get this SecretDoor's Prize.
-		 * @return the Prize, by reference, "hidden behind" this SecretDoor
-		 */
+        /*
+        * Get this SecretDoor's Prize.
+        * @return the Prize, by reference, "hidden behind" this SecretDoor
+        */
 		
     private:
 	
-		unsigned int number;
-		Prize prize;
+        unsigned int number;
+        Prize prize;
 };
 
 /* for unit testing -- do not alter */
