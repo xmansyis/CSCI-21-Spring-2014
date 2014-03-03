@@ -11,7 +11,7 @@ using namespace std;
  */
 class Prize
 {
-	public:
+    public:
 	
         Prize(string newName = "no name!", unsigned int newValue = 0);
 		/*
@@ -34,7 +34,7 @@ class Prize
 		 * @return an unsigned int containing this Prize's value
 		 */
 
-	private:
+    private:
 	
 		string name;
 		unsigned int value;
@@ -46,7 +46,7 @@ class Prize
  */
 class SecretDoor
 {
-	public:
+    public:
 	
         SecretDoor(unsigned int newNumber = 1, Prize newPrize = Prize());
 		/*
@@ -68,7 +68,7 @@ class SecretDoor
 		 * @return the Prize, by reference, "hidden behind" this SecretDoor
 		 */
 		
-	private:
+    private:
 	
 		unsigned int number;
 		Prize prize;
