@@ -79,6 +79,12 @@ float Converter::convertTemperature (float temp, char targetUnits)
 
 float Converter::fahrenheitToCelsius(float temp)
 {
+	//
+	// Grader comments 2014.03.04
+	//
+	// The problem here is that you're doing integer division,
+	// which means that you're multiplying (temp - 32) * 0.
+	//
     return ((temp-32) *(5/9));
 }
 

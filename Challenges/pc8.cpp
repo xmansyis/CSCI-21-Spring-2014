@@ -74,6 +74,13 @@ void processArguments (int argc, char* argv[])
         else if(argvNumber == 50)
             onFifty();
 
+//
+// Grader comments 2014.02.26
+//
+// alpha is not the only kind of error that can
+// occur. There can also be numbers that don't
+// match the functions, such as 0 or 60 or even 25.
+//
         else if(isalpha(argv[i][i]))
             onError();
     }
