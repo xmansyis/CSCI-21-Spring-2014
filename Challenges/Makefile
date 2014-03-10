@@ -1,14 +1,3 @@
-#
-# Grader comments 2014.02.10
-#
-# be sure to use $(FLAGS) for all your assignments,
-# and use the makefile to build your code before
-# you turn it in. Your pc5 will not build with all
-# the flags turned on. I think Boyd will allow me to
-# warn you rather than giving you a zero for the
-# assignment, but you'll want to fix it for future
-# assignments. --Rob
-#
 # Makefile for programming challenges
 #
 # CSCI 21, Spring 2014
