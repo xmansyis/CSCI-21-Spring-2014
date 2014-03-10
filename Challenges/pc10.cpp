@@ -79,12 +79,14 @@ float Converter::convertTemperature (float temp, char targetUnits)
 
 float Converter::fahrenheitToCelsius(float temp)
 {
-    return ((temp-32) *(5/9));
+    const float number = (5.00f/9.00f);
+    return ((temp-32.00f) *number);
 }
 
 float Converter::celsiusToFahrenheit(float temp)
 {
-    return (temp*(9/5)+32);
+    const float number = (9.00f/5.00f);
+    return (temp*(number)+32.00f);
 }
 
 float Converter::convertDistance(float distance, char targetUnits)
