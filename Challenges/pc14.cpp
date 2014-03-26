@@ -36,7 +36,6 @@ bool compareArrays (int arrayOne[], int arrayTwo[], unsigned int size);
 
 int main ()
 {
-
     unittest();
 
     return 0;
@@ -44,28 +43,35 @@ int main ()
 
 void bubbleSort (int theArray[], unsigned int size)
 {
-    for(unsigned int i=1; i<size ;i++ )
-    {
-        for (unsigned int j=0; j<size-1; j++) 
-            if(theArray[j] > theArray[j+1]) 
-                swap(theArray[j], theArray[j+1]);
-    }
+    unsigned int sizeOfUnsortedArray = size;
+    
+    do{
+        for(unsigned int i = 1; i < sizeOfUnsortedArray; ++i){
+            unsigned int LHS = i-1;
+            unsigned int RHS = i;
+        
+            if(theArray[LHS] > theArray[RHS]) 
+                swap(theArray[LHS], theArray[RHS]);
+        }
+        --sizeOfUnsortedArray;
+        
+    }while(sizeOfUnsortedArray > 0);
 }
 
 void selectionSort (int theArray[], unsigned int size)
 {
-    unsigned int smallestNumber = 0;
+    unsigned int sizeOfUnsortedArray = size;
     
-    for(unsigned int i=0; i<size; i++)
-    {
-        smallestNumber = i; 
-        
-        for(unsigned int j=i+1; j<size; j++)
-            if(theArray[j] < theArray[smallestNumber])
-                smallestNumber = j;
-
-        if(smallestNumber != i)
-            swap(theArray[i], theArray[smallestNumber]);
+    for(unsigned int i = 0; i < sizeOfUnsortedArray; ++i){
+        unsigned swapSource = i;
+        unsigned swapTarget = i;
+        unsigned startingIndexOfUnsortedArray = i+1;
+    
+        for(unsigned int j = startingIndexOfUnsortedArray; j < sizeOfUnsortedArray; ++j){
+            if(theArray[j] < theArray[swapSource])
+                swapSource = j;
+        }
+        swap(theArray[swapTarget], theArray[swapSource]);
     }
 }
 
