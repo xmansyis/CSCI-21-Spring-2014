@@ -115,7 +115,7 @@ unsigned int ShoppingList::getItemCount() const
 
 bool ShoppingList::addItem (string theItem)
 {
-    if(itemCount == 10)
+    if(itemCount == maxItems)
         return false;
     else
     {
@@ -147,6 +147,7 @@ string ShoppingList::removeItem (unsigned int index)
         throw ArrayException("INVALID ARRAY INDEX");
    
     string deleteItem = items[index];
+    items[index] = "";
     for(unsigned int i = index; i < maxItems; ++i)
     {
         items[index] = items[index+1];
