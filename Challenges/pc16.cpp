@@ -152,25 +152,35 @@ bool ShoppingList::addItem (string theItem)
     if(itemCount >= maxItems){
     	  return false;
     }
-    
+    else{
     items[itemCount] = theItem;
+    
     itemCount++;
+    
     return true;
+    }
 }
 string ShoppingList::getItem(unsigned int index) const
 {
-        if(index > maxItems)
-             throw ArrayException("INVALID ARRAY INDEX");
-        else
-            return items[index];
-        
+    if(itemCount ==0 || itemCount > maxItems)
+    {
+        throw ArrayException("INVALID ARRAY INDEX");
+    }
+    
+            return items[index-1]; 
+
 }
 string& ShoppingList::getItem (unsigned int index)
 {
-        if(index > maxItems)
-             throw ArrayException("INVALID ARRAY INDEX");
-        else
-            return items[index];
+        if(itemCount ==0 || itemCount > maxItems)
+    {
+        throw ArrayException("INVALID ARRAY INDEX");
+    }
+    
+            return items[index-1]; 
+        
+
+        
         
 }
 string ShoppingList::removeItem(unsigned int index)
@@ -248,15 +258,15 @@ void unittest ()
     }
 
     try {
-        btassert<bool>(myList->getItem(0) == "apples");
+        btassert<bool>(myList->getItem(1) == "apples");
         cout << "Passed TEST 6: ShoppingList::getItem(0) \n";
     } catch (bool b) {
         cout << "# FAILED TEST 6: ShoppingList::getItem(0) #\n";
     }
 
-    myList->getItem(0) = "oranges";
+    myList->getItem(1) = "oranges";
     try {
-        btassert<bool>(myList->getItem(0) == "oranges");
+        btassert<bool>(myList->getItem(1) == "oranges");
         cout << "Passed TEST 7: string& ShoppingList::getItem(0) \n";
     } catch (bool b) {
         cout << "# FAILED TEST 7: string& ShoppingList::getItem(0) #\n";
@@ -353,7 +363,7 @@ void unittest ()
     }
 
     try {
-        btassert<bool>(myList->getItem(0) == "apples");
+        btassert<bool>(myList->getItem(1) == "apples");
         cout << "Passed TEST 18: ShoppingList::getItem(0) \n";
     } catch (bool b) {
         cout << "# FAILED TEST 18: ShoppingList::getItem(0) #\n";
