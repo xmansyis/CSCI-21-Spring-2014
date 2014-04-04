@@ -5,6 +5,10 @@
 # Programmer: Chee Yee Xiong
 
 FLAGS = -Wall -Wextra -Werror -pedantic
+# Target for programming challenge 16
+# Date completed: 4-1-14
+pc16: pc16.cpp
+	g++ $(FLAGS) -o pc16 pc16.cpp
 
 # Target for programming challenge 15
 # Date completed: 3-30-14

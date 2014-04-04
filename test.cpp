@@ -1,35 +1,16 @@
-#include <iostream>
-#include <fstream>
+#include<iostream>
 using namespace std;
 
 int main()
 {
+    int array[5]={1,2,3,4,5};
     
-    ifstream myfile("testin.txt");
-    string line;
-    
-    ofstream myfileOut("testout.txt");
-    
-    if(myfileOut.is_open())
-    {
-        if (myfile.is_open())
-        {
-             while ( getline (myfile,line) )
-            {
-                if(line != "")
-                    myfileOut << line << '\n';
-                
-                cout << "this ----> " << line << endl;
-            }
-
-        myfile.close();
-        }
-        else
-            cout << "cannot open file" << endl;
+    for(int i = 0; i < 5; i++)
+        cout << array[i] << ", ";
         
-        myfileOut.close();
-    }
-    myfileOut.close();
+    cout << "\n\n\n\nRemoving 2....\n\n\n\n\n";
     
+    for(int i = 0; i < 5; i++)
+        cout << array[i] << ", ";
     return 0;
 }
