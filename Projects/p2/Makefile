@@ -23,5 +23,8 @@ Box.o: Box.h Box.cpp
 clean:
 	rm -f *.o
 
+cleanall:
+	rm -f *.o p2
+
 
 
