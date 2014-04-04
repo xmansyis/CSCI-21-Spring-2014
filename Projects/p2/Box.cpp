@@ -3,7 +3,7 @@
  *
  *CHEE YEE XIONG
  *Date created: 3-15-14
- *Last date modified: 4-3-14
+ *Last date modified: 4-4-14
  */
 
 #include "Box.h"
@@ -62,7 +62,9 @@ bool Box::addPrize(Prize prize){
 
 Prize& Box::getPrize(unsigned int index){
     if(prizeCount == index){
-        return prize;
+        prizes[index].setPrizeName("NO NAME");
+        prizes[index].setPrizeValue(0);
+        return prizes[index];
      }
      
     if(prizeCount == 0){
@@ -77,7 +79,9 @@ Prize Box::removePrize(unsigned int index){
     if(prizeCount >= 1 ){
         if(index < prizeCapacity ){
             if(prizeCount == index){
-                return prize;
+                prizes[index].setPrizeName("NO NAME");
+                prizes[index].setPrizeValue(0);
+                return prizes[index];
             }
 
             string tmpPrizeName = prizes[index].getPrizeName();

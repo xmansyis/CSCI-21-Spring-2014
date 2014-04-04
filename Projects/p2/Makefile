@@ -20,7 +20,7 @@ Prize.o: Prize.h Prize.cpp
 Box.o: Box.h Box.cpp
 	g++ -c $(FLAGS) Box.cpp -o Box.o
     
-Clean:
+clean:
 	rm -f *.o
 
 

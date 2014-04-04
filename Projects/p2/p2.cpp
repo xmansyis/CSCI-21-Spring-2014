@@ -1,12 +1,12 @@
 /*
  *PROJECT 2
- *This project will create a box and inside that box exists prizes.  The program will allow the user to add
+ *This project will create a box and inside that box exist prizes.  The program allows the user to add
  *prizes, remove prizes, change the box number and box color, view the status of the box and its prizes.  The program
  *will allocate memory to create these prizes(using dynamic array) which the user will interact with.
  *
  *CHEE YEE XIONG
  *Date created: 3-15-14
- *Last date modified: 4-3-14
+ *Last date modified: 4-4-14
 
  *sources: cplusplus.com, programming challenges.
  */
@@ -15,7 +15,7 @@
 #include "Box.h"
 #include <iostream>
 #include <cstdlib> 
-#include<string>
+#include <string>
 using namespace std;
  
 /*
@@ -41,23 +41,30 @@ void prizeMenuDisplay();
 void boxInteraction();
 
 /*
- *The is prizeInteraction function.  Inside this function, the user can change the prize name,
- *change the prize value, and compare two prizes.
+ *The is prizeInteraction function.  Inside this function, the user can change the prize names,
+ *change the prize values, and compare two prizes.
  */
 void prizeInteraction();
 
- /*
+/*
  *This is clearScreen function.  It create blank lines.
  */
 void clearScreen();
 
 /*
- *This is userInput function.  This function takes in the user input(string) and parse the string.  It 
- *will check for numbers, spaces, and characters from the user input and return a parse user input as a string.
+ *This is userInput function.  This function takes in the user input(a string) and parse the string.  It 
+ *will check for numbers, spaces, and characters from the user input and return a modified user string.
  *@param mode is type string and will be use for parsing in this function.
- *@return a string for calculation and comparison in the driver.
+ *@return string for calculation and comparison in the driver.
  */
 string userInput(string mode);
+
+/*
+ *This is prizeValue function.  This function will repeat itself if the user did not enter all digits only.
+ *@return unsigned int is the new prize value.
+ */
+unsigned int prizeValue();
+
 
 /*
  *This is systemPause function.  This function will fake a pause asking user to press enter to continue.
@@ -65,7 +72,7 @@ string userInput(string mode);
 void systemPause();
 
 /*
- *This is runProject_2 function.  This function will start the simulation and control the Main menu options.
+ *This is runProject_2 function.  This function starts the simulation and control the Main menu options.
  */
 void runProject_2();
 
@@ -78,6 +85,7 @@ void unittest ();
  * This is the program's main function/entry point.
  */
 int main(){
+    
     runProject_2();
     return 0;
 }
@@ -87,6 +95,7 @@ void runProject_2(){
     bool invalidChoiceMessage = false;
 
     while (endProject_2 == false){
+        //clean the screen and display main menu.
         clearScreen();
         mainMenuDisplay();
 
@@ -97,20 +106,24 @@ void runProject_2(){
         cout << "Enter Choice (0-3): ";
         string userChoice = userInput("numbers");
 
+        //user choose to interact with Box.
         if(userChoice == "1"){
             invalidChoiceMessage = false;
             boxInteraction();
         }
+        //user choose to interact with Prize
         else if (userChoice == "2"){
             invalidChoiceMessage = false;
             prizeInteraction();
         }
+        //unittest option.
         else if (userChoice == "3"){
             invalidChoiceMessage = false;
             unittest();
 
             systemPause();
         }
+        //user wanted to quit
         else if (userChoice == "0"){
             endProject_2 = true;
         }
@@ -154,17 +167,12 @@ void boxInteraction(){
                 while(prizeValueUpdate == false){
                     //display current value and prompt user for a prize value.
                     cout << "Prize value (current =\"" << box_01.getPrize(box_01.getPrizeCount()).getPrizeValue() << "\"): ";
-                    string value = userInput("numbers");
-
-                    //value which is type string must not == "invalid" for this conversion of type string to unsigned int.
-                    if(value != "invalid"){
-                        prizeValueUpdate = true;
-                        unsigned int prizeValue = strtoul(value.c_str(), 0, 10);
-                        box_01.addPrize(Prize(prizeName,prizeValue));
-                        cout << "\nNew prize added.\n\n" << endl;
-                    }
+                    unsigned int newPrizeValue = prizeValue();
+                    box_01.addPrize(Prize(prizeName,newPrizeValue));
+                    prizeValueUpdate = true;
+                    cout << "\nNew prize added.\n\n" << endl;
+                    systemPause();
                 }
-                systemPause();
             }
             else{
                 cout << "\nYour box is full! Cannot add anymore prizes.\n\n" << endl;
@@ -245,20 +253,20 @@ void boxInteraction(){
             cout << "Box number: " << box_01.getBoxNumber();
             cout << "\n\nUpdate(y/n)?: ";
 
-            bool boxUpdate = false;
+            bool boxNumberUpdate = false;
             bool invalidChoiceMessage = false;
-            while(boxUpdate == false){
+            while(boxNumberUpdate == false){
 
                 if(invalidChoiceMessage == true){
                     cout << "\nEnter (y or n)?: ";
                 }
 
-                string boxNumberUpdate = userInput("characters");
+                string boxNumberChange = userInput("characters");
                 //the user enter either yes or no for his/her choice.
-                if(boxNumberUpdate == "Y" || boxNumberUpdate == "y" || boxNumberUpdate == "n" || boxNumberUpdate == "N"){ 
+                if(boxNumberChange == "Y" || boxNumberChange == "y" || boxNumberChange == "n" || boxNumberChange == "N"){ 
                     
                     //the user choose yes to change box number.
-                    if(boxNumberUpdate == "y" || boxNumberUpdate == "Y"){
+                    if(boxNumberChange == "y" || boxNumberChange == "Y"){
                         
                         bool runBoxNumber = false;
                         while(runBoxNumber == false){
@@ -266,12 +274,12 @@ void boxInteraction(){
                             string boxNumber = userInput("numbers");
                             
                             if(boxNumber !="invalid"){
-                                unsigned int boxNumberUpdate = strtoul(boxNumber.c_str(),0,10);
-                                box_01.setBoxNumber(boxNumberUpdate);
+                                unsigned int newBoxNumber = strtoul(boxNumber.c_str(),0,10);
+                                box_01.setBoxNumber(newBoxNumber);
                                 
                                 cout << "\n\nBox number updated, ";
                                 systemPause();
-                                boxUpdate = true;
+                                boxNumberUpdate = true;
                                 runBoxNumber = true;
                             }
                         }
@@ -279,7 +287,7 @@ void boxInteraction(){
                     //the user choose not to change the box number.
                     else{
                         cout << "\nNo update, ";
-                        boxUpdate = true;
+                        boxNumberUpdate = true;
                         systemPause();
                     }
                 }
@@ -408,24 +416,13 @@ void prizeInteraction(){
 
                     //user choose to change prize value.
                     if(userPrizeValueUpdate == "Y" || userPrizeValueUpdate == "y"){
-                        
-                        bool prizeValueChange = false;
-                        while(prizeValueChange == false){
-                            cout << "\nEnter new prize value: ";
-                            string boxNumber = userInput("numbers");
-                            
-                            if(boxNumber !="invalid"){ 
-                                unsigned int prizeValueUpdate = strtoul(boxNumber.c_str(),0,10);
-                                prize_01.setPrizeValue(prizeValueUpdate);
+                        unsigned int newPrizeValue = prizeValue();
+                        prize_01.setPrizeValue(newPrizeValue);
                                 
-                                cout << "\n\nPrize value updated, ";
-                                prizeValueChange = true;
-                                systemPause();
-                            }
-                            prizeValueUpdate = true;
-                         }
+                        cout << "\n\nPrize value updated, ";
+                        prizeValueUpdate = true;
+                        systemPause();
                     }
-                    //user don't want to change prize value.
                     else{
                         cout << "\n\nPrize value not update, ";
                         prizeValueUpdate = true;
@@ -436,46 +433,38 @@ void prizeInteraction(){
         }
         //user want to compare two prizes.
         else if(userChoice == "3"){
+            clearScreen();
             cout << "First, set the values for the data members of the two prizes.\n\n";
             cout << "Prize 1 ->" << endl;
-            cout << "Prize value (current=" << prize_01.getPrizeName() << "): ";
+            cout << "Prize name (current=\"" << prize_01.getPrizeName() << "\"): ";
             
             //setting prize 1 name.
             string userPrizeName = userInput("characters");
             prize_01.setPrizeName(userPrizeName);
             
-            bool prizeValueChange = false;
-            while(prizeValueChange == false){
-                cout << "Prize value (current=" << prize_01.getPrizeValue() << "): ";
-                string boxValue = userInput("numbers");
-                
-                //setting prize 1 value.
-                if(boxValue !="invalid"){   
-                    prizeValueChange = true;
-                    unsigned int prizeValueUpdate = strtoul(boxValue.c_str(),0,10);
-                    prize_01.setPrizeValue(prizeValueUpdate);
-                }
+            bool prizeValueUpdate = false;
+            while(prizeValueUpdate == false){
+                cout << "Prize value (current=\"" << prize_01.getPrizeValue() << "\"): ";
+                unsigned int newPrizeValue = prizeValue();
+                prize_01.setPrizeValue(newPrizeValue);
+                prizeValueUpdate = true;
             }
 
             cout << "\nPrize 2 ->" << endl;
-            cout << "Prize name (current=" << prize_02.getPrizeName() << "): ";
+            cout << "Prize name (current=\"" << prize_02.getPrizeName() << "\"): ";
             
             //setting prize 2 name.
             userPrizeName == userInput("characters");
             prize_02.setPrizeName(userPrizeName);
             
-            prizeValueChange = false;
-            while(prizeValueChange == false){
-                cout << "Prize value (current=" << prize_02.getPrizeValue() << "): ";
-                string boxValue = userInput("numbers");
-                
-                    //setting prize 2 value.
-                    if(boxValue !="invalid"){   
-                        prizeValueChange = true;
-                        unsigned int prizeValueUpdate = strtoul(boxValue.c_str(),0,10);
-                        prize_02.setPrizeValue(prizeValueUpdate);
-                    }
+            prizeValueUpdate = false;
+            while(prizeValueUpdate == false){
+                cout << "Prize value (current=\"" << prize_02.getPrizeValue() << "\"): ";
+                unsigned int newPrizeValue = prizeValue();
+                prize_02.setPrizeValue(newPrizeValue);
+                prizeValueUpdate = true;
             }
+            
             if(prize_02 == prize_01)
                 cout << "\n\nThe two prizes are the same.\n\n";
             else
@@ -518,6 +507,21 @@ string userInput(string mode){
     }
 
     return userInput;
+}
+
+unsigned int prizeValue(){
+    bool prizeValueChange = false;
+    while(prizeValueChange == false){
+        cout << "Enter new prize value: ";
+        string prizeValue = userInput("numbers");
+                            
+        if(prizeValue !="invalid"){ 
+            unsigned int newPrizeValue = strtoul(prizeValue.c_str(),0,10);
+            return newPrizeValue;
+            prizeValueChange = true;
+        }
+    }
+    return prizeValueChange;
 }
 
 void mainMenuDisplay(){

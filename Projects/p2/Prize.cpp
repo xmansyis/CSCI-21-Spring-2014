@@ -38,9 +38,11 @@ Prize::~Prize()
 {}
 
 bool operator== (Prize prize_a, Prize prize_b){
-    if(prize_a.prizeName == prize_b.prizeName)
-        if(prize_a.prizeValue == prize_b.prizeValue)
+    if(prize_a.prizeName == prize_b.prizeName){
+        if(prize_a.prizeValue == prize_b.prizeValue){
             return true;
-
+        }
+        return false;
+    }
     return false;
 }
