@@ -4,7 +4,7 @@
 #
 # Programmer: Chee Yee Xiong
 
-FLAGS = -Wall -Wextra -Werror -pedantic
+FLAGS = -Wall -Wextra -Werror -pedantic -Wno-newline-eof
 # Target for programming challenge 18
 # Date completed: 4-9-14
 
