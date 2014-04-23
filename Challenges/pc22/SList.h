@@ -205,12 +205,15 @@ class SList{
                 }
             }
         }
+        
         bool removeAll(T target)
 		{
 			bool removeValue = false;
-			for(int i = 0; i < count; i++)
-				if(removeFirst(target))
+			for(int i = 0; i < count; i++){
+				if(removeFirst(target)){
 					removeValue = true;
+				}
+			}
 			return removeValue;
 		}
     
