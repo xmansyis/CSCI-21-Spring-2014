@@ -84,46 +84,54 @@ string SList::toString () const{
     return ss.str();
 }
 
-void SList::insert(int newContent){
-    if(head == NULL){
-         insertHead(newContent);
-    }
-     else if(head->getNextNode() == NULL){
-        if(newContent < head->getContents()){
-            insertHead(newContent);
-        }
-        else{
-            insertTail(newContent);
-        }
-    }
-    else{
-        SLNode* Trailer = NULL;
-        SLNode* spot = head;
-    
-        while(spot->getNextNode() != NULL && newContent > spot->getContents()){
-            Trailer = spot;
-            spot = spot->getNextNode();
-        }
-       
-        if(spot->getNextNode() == NULL && newContent > spot->getContents()){
+void SList::insert(int newContents){
+    SLNode* newNode = new SLNode(newContents);
+	
+	if(head == NULL){
+		insertHead(newContents);
+	}
+	else if(head->getNextNode() == NULL){
+		if(head->getContents() >= newContents){
+			insertHead(newContents);
+		}
+		else{
+			insertTail(newContents);
+		}
+	}
+	else{
+		SLNode* ptr = head;
+		SLNode* trailerPtr = NULL;
+	
+		while(ptr->getNextNode() != NULL && newContents >= ptr->getContents()){
+			trailerPtr = ptr;
+			ptr = ptr->getNextNode();
+		}
 
-            insertTail(newContent);
-        }
-        else{
-            
-            SLNode* node = new SLNode(newContent);
-            node->setNextNode(spot);
- 
-            if(Trailer == NULL ){
-                //???
-            }
-            else{
-                Trailer->setNextNode(node);
-            }
-            
-            count++;
-        }
-    }
+		if(ptr->getNextNode() == NULL && newContents >= ptr->getContents()){
+				insertTail(newContents);
+				
+	
+		}
+		else if(ptr->getNextNode() == NULL && newContents <= ptr->getContents()){
+	
+				newNode->setNextNode(ptr);
+				
+				trailerPtr->setNextNode(newNode);
+				
+				count++;
+		}
+		else if(trailerPtr == NULL){
+			insertHead(newContents);
+		}
+		else{
+			newNode->setNextNode(ptr);
+		
+			trailerPtr->setNextNode(newNode);
+			
+			count++;
+		}
+	}
+    
 }
 
 bool SList::removeFirst(int removeContent){
