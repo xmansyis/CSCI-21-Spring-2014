@@ -55,35 +55,35 @@ class Word{
         void incrementCount();
 
         /*
-		 *friend overloaded operator ==
-		 *@param const Word& word1 is the first word.
-		 *@param const Word& word1 is the second word.
-		 *@return bool.
-		 */
+         *friend overloaded operator ==
+         *@param const Word& word1 is the first word.
+         *@param const Word& word1 is the second word.
+         *@return bool.
+         */
         friend bool operator ==(const Word& word1, const Word& word2);
 
         /*
-		 *friend overloaded operator <
-		 *@param const Word& word1 is the first word.
-		 *@param const Word& word1 is the second word.
-		 *@return bool.
-		 */
+         *friend overloaded operator <
+         *@param const Word& word1 is the first word.
+         *@param const Word& word1 is the second word.
+         *@return bool.
+         */
         friend bool operator <(const Word& word1, const Word& word2);
 
         /*
-		 *friend overloaded operator >
-		 *@param const Word& word1 is the first word.
-		 *@param const Word& word1 is the second word.
-		 *@return bool.
-		 */
+         *friend overloaded operator >
+         *@param const Word& word1 is the first word.
+         *@param const Word& word1 is the second word.
+         *@return bool.
+         */
         friend bool operator >(const Word& word1, const Word& word2);
 
         /*
-		 *friend overloaded operator <<
-		 *@param ostream& object type ostream& outs.
-		 *@param const Word&, object type Word& src.
-		 *@return ostream& outs
-		 */
+         *friend overloaded operator <<
+         *@param ostream& object type ostream& outs.
+         *@param const Word&, object type Word& src.
+         *@return ostream& outs
+         */
         friend ostream& operator <<(ostream& outs, const Word& src);
 
     private:

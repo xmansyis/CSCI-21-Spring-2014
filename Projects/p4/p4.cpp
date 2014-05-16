@@ -60,22 +60,22 @@ void run_project4(string filename){
     ifstream myfile(filename.c_str());
 
     if (myfile.is_open()){
-		string line;
-		string operationChar;
-		bool treeExist = false;
-
-		BSTree<Word>* wordTree;
+        string line;
+        string operationChar;
+        bool treeExist = false;
+        
+        BSTree<Word>* wordTree;
 
         while (getline(myfile,line)){
-			operationChar = toupper(line.at(0));
+            operationChar = toupper(line.at(0));
             line.erase(0,2);
 
             //creating a tree
-			if(operationChar == "C"){
-				if(treeExist == false){
+            if(operationChar == "C"){
+                if(treeExist == false){
                     wordTree = new BSTree<Word>;
                     treeExist = true;
-			    }
+                }
                 else{
                     delete wordTree;
                     wordTree = new BSTree<Word>;
@@ -188,18 +188,18 @@ void run_project4(string filename){
                 }
             }
 
-			//display message if there is no tree for an operation.
-			if(treeExist == false && operationChar != "#" && line != ""){
-	            cout << "MUST CREATE TREE INSTANCE" << endl;
-			}
-		}
+            //display message if there is no tree for an operation.
+            if(treeExist == false && operationChar != "#" && line != ""){
+                cout << "MUST CREATE TREE INSTANCE" << endl;
+            }
+        }
 		myfile.close();
 
-		//delete the tree if there is a tree before exiting. NULL tree pointer.
-		if(treeExist == true){
+        //delete the tree if there is a tree before exiting. NULL tree pointer.
+        if(treeExist == true){
             delete wordTree;
             wordTree = NULL;
-	    }
+        }
     }
     else{
         cout << "Cannot open file: " << filename << endl;
