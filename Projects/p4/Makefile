@@ -1,7 +1,9 @@
-
+# Makefile for project 4
+#
 # CSCI 21, Spring 2014
 #
 # Programmer: Chee Yee Xiong
+# Date completed: 5-10-14
 
 FLAGS = -Wall -Wextra -Werror -pedantic -Wno-newline-eof
 

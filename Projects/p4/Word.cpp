@@ -1,3 +1,11 @@
+/*
+ *Project 4, Word.cpp
+ *
+ *CHEE YEE XIONG
+ *Date created: 5-02-14
+ *Last date modified: 5-16-14
+ */
+
 #include "Word.h"
 
 Word::Word(){
@@ -21,7 +29,7 @@ string Word::getWord() const{
 
 void Word::setWord(string newWord){
     word = newWord;
-    
+
     for(int i = 0; i < word.size(); i++){
         word[i] = tolower(word[i]);
     }
