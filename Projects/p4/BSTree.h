@@ -156,7 +156,7 @@ class BSTree{
         void inOrder(BSTNode<T>*& tempRoot){
             if(tempRoot != NULL){
                 inOrder(tempRoot->getLeftChild());
-                std::cout << tempRoot->getData() << endl;
+                cout << tempRoot->getData() << endl;
                 inOrder(tempRoot->getRightChild());
             }
         }
@@ -164,7 +164,7 @@ class BSTree{
         void reverseOrder(BSTNode<T>*& tempRoot){
             if(tempRoot != NULL){
                 reverseOrder(tempRoot->getRightChild());
-                std::cout << tempRoot->getData() << endl;
+                cout << tempRoot->getData() << endl;
                 reverseOrder(tempRoot->getLeftChild());
             }
         }
