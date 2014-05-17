@@ -1,3 +1,12 @@
+//
+// Grader comments 2014.05.15
+// + 50: naming conventions good
+// + 50: header documentation good
+// + 50: formatting good
+// +142: driver -- see comments below; look for "grader comments" and "Rob"
+// +150: DLNode good
+// +280: DLList -- see comments DLList.cpp
+// 
 /*
  *PROJECT 3
  *This project will take in an input file and process the input file with a series of commands.  Each
@@ -61,6 +70,10 @@ int main(int argc, char* argv[]){
 	return 0;
 }
 
+//
+// Grader comments 2014.05.15
+// -8: X, D, A, Z, T, K, N, P should report "MUST CREATE LIST INSTANCE" when there is no list
+//
 void run_project3(string filename){
 
 	ifstream myfile(filename.c_str());
@@ -217,6 +230,7 @@ void run_project3(string filename){
 			
 			//display message if there is no list for an operation.
 			if(doesListExist == false && charLetter != "#" && line != ""){
+				cout << "The letter is '" << charLetter << "'" << endl;
 				cout << "MUST CREATE LIST INSTANCE" << endl;
 			}
 		}

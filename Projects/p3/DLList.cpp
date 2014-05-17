@@ -110,6 +110,11 @@ void DLList::insert(int newContents){
 	}	
 }
 
+//
+// Grader comments 2014.05.13
+// This function doesn't manage the list tail pointer.
+// -10 points
+//
 void DLList::popFront(){
 	if(head != NULL){
 		if(head->getNext() == NULL){
@@ -128,6 +133,12 @@ void DLList::popFront(){
 	}	
 }
 
+
+//
+// Grader comments 2014.05.13
+// This function doesn't manage the list head pointer
+// -10 points
+//
 void DLList::popBack(){
 	if(head !=NULL){
 		if(head->getNext() == NULL){
