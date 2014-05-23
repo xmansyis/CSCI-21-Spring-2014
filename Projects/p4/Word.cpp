@@ -15,7 +15,7 @@ Word::Word(){
 Word::Word(string newWord){
     word = newWord;
     count = 1;
-    for(int i = 0; i < word.size(); i++){
+    for(unsigned int i = 0; i < word.size(); i++){
         word[i] = tolower(word[i]);
     }
 }
@@ -30,7 +30,7 @@ string Word::getWord() const{
 void Word::setWord(string newWord){
     word = newWord;
 
-    for(int i = 0; i < word.size(); i++){
+    for(unsigned int i = 0; i < word.size(); i++){
         word[i] = tolower(word[i]);
     }
 }
