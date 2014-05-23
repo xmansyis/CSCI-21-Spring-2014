@@ -1,3 +1,7 @@
+//
+// Grader comments 2014.05.23
+// -15 points total
+//
 /*PROJECT 4
  *The purpose of project 4 is to implement and test the functionality of a binary search tree.
  *In this project, the program will read data(s) from a file and performed the correct command(s).
@@ -69,6 +73,12 @@ void run_project4(string filename){
         while (getline(myfile,line)){
             operationChar = toupper(line.at(0));
             line.erase(0,2);
+			
+			// Rob added to get unit test to work
+            if(treeExist == false && operationChar != "#" && operationChar != "C"){
+                cout << "MUST CREATE TREE INSTANCE" << endl;
+				continue;
+            }
 
             //creating a tree
             if(operationChar == "C"){
@@ -136,7 +146,14 @@ void run_project4(string filename){
                     cout << "REMOVED " << line << endl;
                 }
                 else{
-                    if(wordTree == NULL){
+					//
+					// Grader comments 2014.05.23
+					// Shouldn't check wordTree for null, but rather
+					// check whether wordTree has any nodes in it.
+					// -5 points
+					//
+                    //if(wordTree == NULL){
+					if(wordTree->getSize() == 0){
                         cout << "TREE EMPTY" << endl;
                     }
                     else{
@@ -188,10 +205,20 @@ void run_project4(string filename){
                 }
             }
 
+			//
+			// Grader comments 2014.05.23
+			// Should show this message even if line is blank. Also erroneously
+			// shows this message after deleting the tree legitimately. Commented
+			// this out and added logic at top of this while loop to get the
+			// unit test to run.
+			// -10 points
+			//
+#if 0
             //display message if there is no tree for an operation.
             if(treeExist == false && operationChar != "#" && line != ""){
                 cout << "MUST CREATE TREE INSTANCE" << endl;
             }
+#endif
         }
 		myfile.close();
 
