@@ -209,7 +209,7 @@ class SList{
         bool removeAll(T target)
 		{
 			bool removeValue = false;
-			for(int i = 0; i < count; i++){
+			for(unsigned int i = 0; i < count; i++){
 				if(removeFirst(target)){
 					removeValue = true;
 				}
