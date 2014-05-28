@@ -17,7 +17,8 @@ class Box{
         }
 
         friend ostream& operator << (ostream& outs, Box<T> e){
-            outs << e.contents;    
+            outs << e.contents;
+            return outs;
         }
   
   private:
