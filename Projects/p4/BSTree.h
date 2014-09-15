@@ -1,3 +1,7 @@
+//
+// Grader comments 2014.05.23
+// -30 points total
+//
 /*
  *Project 4, BSTree.h
  *
@@ -195,6 +199,15 @@ class BSTree{
             }
         }
 
+				
+		//
+		// Grader comments 2014.05.23
+		// right/left child handling is backward. Breaks the tree
+		// when removing nodes. Also, don't decrement size here,
+		// because you're doing so in your main remove() function.
+		// -30 points
+		//
+
         /*
          *private function removeMax(T removed, BSTNode<T>*& tempRoot), use with recursive remove.
          *@param T removed the data to be remove.
@@ -202,15 +215,15 @@ class BSTree{
          *@return bool, true if remove, or else return false.
          */
         void removeMax(T& removed, BSTNode<T>*& tempRoot){
-            if(tempRoot->getLeftChild() == NULL){
+            if(tempRoot->getRightChild() == NULL){
                 BSTNode<T>* rootToRemoved = tempRoot;
                 removed = tempRoot->getData();
-                tempRoot = tempRoot->getRightChild();
+                tempRoot = tempRoot->getLeftChild();
                 delete rootToRemoved;
-                size--;
+                //size--;		// Rob: make the unit test work
             }
             else{
-                removeMax(removed, tempRoot->getLeftChild());
+                removeMax(removed, tempRoot->getRightChild());
             }
         }
 
@@ -222,7 +235,8 @@ class BSTree{
          */
         T* get(T targetData, BSTNode<T>*& tempRoot){
             if(tempRoot == NULL){
-                return false;
+                //return false;	// Rob fixed
+				return NULL;
             }
             else{
                 if(targetData < tempRoot->getData()){

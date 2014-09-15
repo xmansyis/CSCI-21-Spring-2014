@@ -4,7 +4,7 @@
 #
 # Programmer: Chee Yee Xiong
 
-FLAGS = -Wall -Wextra -Werror -pedantic -Wno-newline-eof
+Flag = -Wall -Wextra -Werror -pedantic -Wno-newline-eof
 
 pc28: pc28.o Item.o FoodItem.o MagicItem.o
 	g++ $(FLAGS) pc28.o MagicItem.o FoodItem.o Item.o -o pc28
